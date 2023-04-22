@@ -34,7 +34,7 @@
 #### step3
 ```
 ####to generate a Gene Program
-/data/COLOR/sclinker_test/script/run_process_sclinker_output_step3.sh
+/data/COLOR/sclinker_test/script/run_process_sclinker_output_step3.sh (process_sclinker_output.R)
 ```
 
 * input
@@ -50,3 +50,30 @@
   * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/oligodendrocytes.txt
   * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/pyramidal.CA1.txt
   * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/pyramidal.SS.txt
+
+#### step4
+```
+####Gene sets to bedgraph format files using region-gene linking
+/data/COLOR/sclinker_test/script/run_geneset_to_bed_sclinker_step4.sh (geneset_to_bed_sclinker.R)
+```
+
+* input
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal.txt
+  * /data/COLOR/sclinker_test/processed_data/Dey_Enhancer_MasterReg/data/
+* output
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/ABC_Road_ALL.bed
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/100kb.bed
+
+#### step5
+```
+####cleaning the bedgraph format files
+/data/COLOR/sclinker_test/script/run_clean_bed_step5.sh (clean_bed.sh)
+```
+
+* input
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/ABC_Road_ALL.bed
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/100kb.bed
+* output
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/ABC_Road_ALL.bed (has cleaned)
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/100kb.bed (has cleaned)
+
