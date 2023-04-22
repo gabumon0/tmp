@@ -77,3 +77,37 @@
   * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/ABC_Road_ALL.bed (has cleaned)
   * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/100kb.bed (has cleaned)
 
+#### step6
+```
+####from bedgraph to annotation files
+/data/COLOR/sclinker_test/script/run_bed_to_annot_step6.sh (bed_to_annot.sh, bedgraph_to_annot.py)
+```
+
+* input
+  * /data/COLOR/sclinker_test/processed_data/Dey_Enhancer_MasterReg/data/BIMS
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/ABC_Road_ALL.bed & 100kb.bed
+* output
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype_annot/astrocytes_ependymal/100kb/*annot.gz
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype_annot/astrocytes_ependymal/ABC_Road_ALL/*annot.gz
+
+#### step7
+```
+####create LD-scores from a reference panel
+/data/COLOR/sclinker_test/script/create_ldscores.sh
+```
+
+* input 
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/astrocytes_ependymal*.annot.gz  (copy from /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype_annot/astrocytes_ependymal/ABC_Road_ALL/*annot.gz)
+* output
+  * /data/COLOR/sclinker_test/data/sclinker_genescores/test_celltype/astrocytes_ependymal/astrocytes_ependymal*l2.ldscore.gz
+
+#### step8
+```
+####run regression model in S-LDSC 
+/data/COLOR/sclinker_test/script/run_ldsc_reg.sh   (--ref-ld-chr参数需要调整)
+```
+
+* input
+
+* output
+  * /data/COLOR/sclinker_test/data/sclinker_out/baselineLD_v2.2/astrocytes_ependymal/*results
